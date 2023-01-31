@@ -36,7 +36,7 @@ public final class ServerEnv {
   private ServerEnv() {}
 
   public static final String GIT_PROPS_FILE = "sofaregistry.git.properties";
-  public static final String IP = NetUtil.getLocalAddress().getHostAddress();
+  public static final String IP = System.getProperty("BEST_IP", NetUtil.getLocalAddress().getHostAddress());
   public static final int PID = getPID();
   public static final ProcessId PROCESS_ID = createProcessId();
 
