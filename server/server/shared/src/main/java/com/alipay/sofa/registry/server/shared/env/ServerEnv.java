@@ -21,6 +21,7 @@ import com.alipay.sofa.registry.log.Logger;
 import com.alipay.sofa.registry.log.LoggerFactory;
 import com.alipay.sofa.registry.net.NetUtil;
 import com.alipay.sofa.registry.util.ParaCheckUtil;
+import com.alipay.sofa.registry.util.SystemUtils;
 import java.io.InputStream;
 import java.util.*;
 import org.apache.commons.io.IOUtils;
@@ -36,7 +37,8 @@ public final class ServerEnv {
   private ServerEnv() {}
 
   public static final String GIT_PROPS_FILE = "sofaregistry.git.properties";
-  public static final String IP = System.getProperty("BEST_IP", NetUtil.getLocalAddress().getHostAddress());
+  public static final String IP =
+      SystemUtils.getSystem("sofa.best.ip", NetUtil.getLocalAddress().getHostAddress());
   public static final int PID = getPID();
   public static final ProcessId PROCESS_ID = createProcessId();
 
